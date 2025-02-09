@@ -1,0 +1,22 @@
+{
+        "name": "OpenPI Development",
+        "containerEnv": {
+            "http_proxy": "${localEnv:http_proxy}",
+            "https_proxy": "${localEnv:https_proxy}",
+            "no_proxy": "${localEnv:no_proxy}"
+          },
+        "dockerComposeFile": ["../scripts/docker/compose.yml"],
+        "service": "openpi_server",
+        "workspaceFolder": "/app",
+        "customizations": {
+            "vscode": {
+                "extensions": [
+                    "ms-python.python",
+                    "ms-python.vscode-pylance",
+                    "ms-azuretools.vscode-docker"
+                ]
+            }
+        },
+        "remoteUser": "root",
+        "shutdownAction": "stopCompose"
+}

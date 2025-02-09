@@ -4,7 +4,7 @@ services:
   openpi_server:
     image: openpi_server
     build:
-      context: ..
+      context: ../..
       dockerfile: scripts/docker/serve_policy.Dockerfile
     init: true
     tty: true
@@ -12,12 +12,17 @@ services:
     # Populate configured openpi data home to /openpi_assets inside the container.
     # Populate aws credential inside the container.
     volumes:
-      - $PWD:/app
+      - ../..:/app
       - ${OPENPI_DATA_HOME:-~/.cache/openpi}:/openpi_assets
+      # Add these development-specific volumes
+      - ~/.gitconfig:/root/.gitconfig
+      - ~/.ssh:/root/.ssh
     environment:
       - SERVER_ARGS
       - OPENPI_DATA_HOME=/openpi_assets
       - IS_DOCKER=true
+      # Add development-specific environment variables
+      - PYTEST_ADDOPTS="--color=yes"
 
     # Comment out this block if not running on a machine with GPUs.
     deploy:
