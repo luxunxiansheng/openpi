@@ -23,12 +23,13 @@ ENV UV_LINK_MODE=copy
 ENV UV_PROJECT_ENVIRONMENT=/.venv
 
 # Install the project's dependencies using the lockfile and settings
-RUN uv venv --python 3.11.9 $UV_PROJECT_ENVIRONMENT
+#RUN uv venv --python 3.11.9 $UV_PROJECT_ENVIRONMENT
 RUN --mount=type=cache,target=/root/.cache/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     --mount=type=bind,source=packages/openpi-client/pyproject.toml,target=packages/openpi-client/pyproject.toml \
-    --mount=type=bind,source=packages/openpi-client/src,target=packages/openpi-client/src \
-    GIT_LFS_SKIP_SMUDGE=1 uv sync --frozen --no-install-project --no-dev
+    --mount=type=bind,source=packages/openpi-client/src,target=packages/openpi-client/src 
 
-CMD /bin/bash -c "uv run scripts/serve_policy.py $SERVER_ARGS"
+#RUN GIT_LFS_SKIP_SMUDGE=1 uv sync --frozen --no-install-project --no-dev
+
+#CMD /bin/bash -c "uv run scripts/serve_policy.py $SERVER_ARGS"
