@@ -44,7 +44,7 @@
                 ]
             }
         },
-        "postCreateCommand": "uv venv --python 3.11.9 $UV_PROJECT_ENVIRONMENT && GIT_LFS_SKIP_SMUDGE=1 uv sync --frozen --no-install-project --no-dev && source /.venv/bin/activate  &&/bin/bash -c 'uv run scripts/serve_policy.py $SERVER_ARGS'",
+        "postCreateCommand": "uv venv --python 3.11.9 $UV_PROJECT_ENVIRONMENT && GIT_LFS_SKIP_SMUDGE=1 uv sync --frozen --no-install-project --no-dev && /bin/bash -c 'uv run scripts/serve_policy.py $SERVER_ARGS'" ,
         "remoteUser": "root",
         "shutdownAction": "stopCompose"
 }
