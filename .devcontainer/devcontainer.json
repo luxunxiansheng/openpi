@@ -51,6 +51,8 @@
     "postCreateCommand": "bash -c '\
         git config --global --add safe.directory /app && \
         git config --global core.sshCommand \"ssh -i /root/.ssh/id_rsa\" && \
+        git config --global user.name \"OrNot4090\" && \
+        git config --global user.email \"ornot2008@yahoo.com\" && \
         uv venv --python 3.11.9 $UV_PROJECT_ENVIRONMENT && \
         echo \"export PYTHONPATH=/app\" >> ~/.bashrc && \
         echo \"source $UV_PROJECT_ENVIRONMENT/bin/activate\" >> ~/.bashrc && \
