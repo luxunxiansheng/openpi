@@ -15,7 +15,7 @@ services:
       - ../..:/app
       - ${OPENPI_DATA_HOME:-~/.cache/openpi}:/openpi_assets
       # Add these development-specific volumes
-      - ~/.gitconfig:/root/.gitconfig
+      # - ~/.gitconfig:/root/.gitconfig
       - ~/.ssh:/root/.ssh
     environment:
       - SERVER_ARGS

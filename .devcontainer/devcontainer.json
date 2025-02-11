@@ -1,11 +1,11 @@
 {
         "name": "OpenPI Development",
+        "dockerComposeFile": ["../scripts/docker/compose.yml"],
         "containerEnv": {
             "http_proxy": "${localEnv:http_proxy}",
             "https_proxy": "${localEnv:https_proxy}",
             "no_proxy": "${localEnv:no_proxy}"
           },
-        "dockerComposeFile": ["../scripts/docker/compose.yml"],
         "service": "openpi_server",
         "workspaceFolder": "/app",
         "customizations": {
@@ -44,7 +44,7 @@
                 ]
             }
         },
-        "postCreateCommand": "uv venv --python 3.11.9 $UV_PROJECT_ENVIRONMENT && GIT_LFS_SKIP_SMUDGE=1 uv sync --frozen --no-install-project --no-dev && /bin/bash -c 'uv run scripts/serve_policy.py $SERVER_ARGS'" ,
+        "postCreateCommand": "uv venv --python 3.11.9 $UV_PROJECT_ENVIRONMENT && GIT_LFS_SKIP_SMUDGE=1 uv sync --frozen ",
         "remoteUser": "root",
         "shutdownAction": "stopCompose"
 }
