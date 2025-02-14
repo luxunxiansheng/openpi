@@ -6,6 +6,8 @@ services:
     build:
       context: ../..
       dockerfile: scripts/docker/serve_policy.Dockerfile
+    env_file:
+      - ../../.devcontainer/devcontainer.env
     init: true
     tty: true
     network_mode: host
