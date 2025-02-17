@@ -44,7 +44,8 @@
                 "ms-python.isort",
                 "ms-toolsai.jupyter-keymap",
                 "vscode-icons-team.vscode-icons",
-                "anyscalecompute.ray-distributed-debugger"
+                "anyscalecompute.ray-distributed-debugger",
+                "ms-python.vscode-python-envs"
             ]
         }
     },
